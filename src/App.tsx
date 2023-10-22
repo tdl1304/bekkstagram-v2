@@ -1,24 +1,21 @@
-import React from 'react';
-import images from './data/images';
-import { formatDistanceToNow } from 'date-fns';
+import { DetailPage } from './DetailPage';
+import FeedPage from './FeedPage';
 import Header from './Header';
-import Image from './Image';
+import images from './data/images';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   console.log(images)
   return (
-    <div>
+    <BrowserRouter>
       <Header />
-      <div>
-        {images.map((image) => (
-          <div className='post'>
-            <div className='author'>{image.username}</div>
-              <Image key={image.id} src={image.url} alt={image.description} />
-            <div className='timestamp'>{formatDistanceToNow(image.createdDate)}</div>
-          </div>
-        ))}
-      </div>
-    </div >
+      <Routes>
+        <Route path = '/' element={<FeedPage />} />
+        <Route path = '/post/'>
+          <Route path =':id' element={<DetailPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
