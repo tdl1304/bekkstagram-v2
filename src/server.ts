@@ -14,13 +14,13 @@ export const getFeed = async () => {
   return data;
 };
 
-export const getImage = async id => {
+export const getImage = async(id: number) => {
   const response = await fetch(`${API_BASE_URL}/media/${id}`);
   const { data } = await response.json();
   return data;
 };
 
-const validateImage = url =>
+const validateImage = (url: string) =>
   new Promise(resolve => {
     const image = new Image();
     image.onload = () => resolve(true);
@@ -28,7 +28,7 @@ const validateImage = url =>
     image.src = url;
   });
 
-export const uploadImage = async ({ url, description }) => {
+export const uploadImage = async ({ url, description }: {url: string, description: string}) => {
   const isValidUrl = await validateImage(url);
   if (!isValidUrl) {
     throw new Error("Image URL wasn't valid");
@@ -46,7 +46,7 @@ export const uploadImage = async ({ url, description }) => {
   return data;
 };
 
-export const putComment = async (imageId, comment) => {
+export const putComment = async (imageId: number, comment: string) => {
   const commentObject = { text: comment, username };
 
   const response = await fetch(`${API_BASE_URL}/media/${imageId}/comments`, {
