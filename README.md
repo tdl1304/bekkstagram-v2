@@ -1,5 +1,4 @@
 # Introduksjon til React – en workshop
-
 Dette er en workshop for deg som vil lære React fra bunnen av. Workshopen består av et sett med oppgaver, med gode forklaringer etter hver oppgave.
 
 Når du har jobbet deg gjennom denne workshopen vil du ha en god, grunnleggende forståelse av hvordan React fungerer, og hvordan du kan lage webapper på null komma niks.

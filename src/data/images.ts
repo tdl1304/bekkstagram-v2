@@ -1,11 +1,10 @@
-interface ImageType {
+type ImageType = {
   id: string;
   url: string;
   description: string;
   createdDate: number;
   username: string;
 }
-
 
 const DAY = 1000 * 60 * 60 * 24;
 // Dette er arrayet du skal liste ut
