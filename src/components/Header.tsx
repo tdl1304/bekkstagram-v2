@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function Header():JSX.Element {
     return (
       <div>
-        <Link to='/'>
+        <Link href='/'>
             <h1>Bekkstagram</h1>
         </Link>
       </div>

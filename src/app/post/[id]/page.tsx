@@ -1,9 +1,13 @@
-import { useParams } from 'react-router-dom';
-import images, { ImageType } from './data/images';
-import Image from './Image';
 
-export function DetailPage(): JSX.Element {
-    const { id } = useParams();
+import images, { ImageType } from '@/data/images';
+import Image from '@/components/Image';
+
+type DetailPageParams = {
+    id: string;
+};
+
+export default function DetailPage({ params }: {params: DetailPageParams}): JSX.Element {
+    const { id } = params;
 
     // Find the image with the matching parsedId
     const image = images.find((img: ImageType) => parseInt(img.id) === Number(id));
@@ -17,7 +21,7 @@ export function DetailPage(): JSX.Element {
                     <p>Author: {image.username}</p>
                 </>
             ) : (
-                <div>Image not found</div>
+                <p>Image not found</p>
             )}
         </div>
     );
